@@ -17,10 +17,12 @@ public class PersonaService {
 	@Autowired
 	PersonaRepository personaRepo;
 	
-	public Optional<Persona> carrega(Integer codi) {
+	public Optional<Persona> carrega(Long codi) {
 		Optional<Persona> persona = personaRepo.findById(codi);
 		persona.ifPresent(p -> p.getMascotes().size());
 		return persona;
-	} 
+	}
+	
+	
 	
 }
