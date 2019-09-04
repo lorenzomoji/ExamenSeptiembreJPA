@@ -1,16 +1,31 @@
 package org.formacio.domain;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.SequenceGenerator;
+import javax.persistence.Table;
 
+@Entity
+@Table(name = "t_cases")
+@SequenceGenerator(name="sequencia_casas", sequenceName="SEQ_CAS")
 public class Casa {
 
 	/**
 	 * Casa ha d'emprar l'estrategia per l'id IDENTITY
 	 */
 	
+	@Id @GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column(name="CAS_ID", nullable = false)
     private Long id;
 	
+	@Column(name = "adreça")
 	private String adreca;
 	
+	@ManyToOne
 	private Municipi municipi;
 
 	public Long getId() {

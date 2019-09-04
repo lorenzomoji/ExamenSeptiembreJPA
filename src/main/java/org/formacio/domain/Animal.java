@@ -1,10 +1,20 @@
 package org.formacio.domain;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "t_animals")
 public class Animal {
 	
 	/**
 	 * L'id d'animal es el propi nom. No fa falta cap generador
 	 */
+	
+	@Id
+	@Column(name = "ani_nom")
 	private String nom;
 
 	public String getNom() {
